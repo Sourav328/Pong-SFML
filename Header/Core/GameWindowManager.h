@@ -10,7 +10,7 @@ namespace Core
       private:
         int game_window_width = 1280;
         int game_window_height = 720;
-        std::string game_title = "SFML-Pong!";
+        std::string game_title = "PING PONG";
 
         RenderWindow* game_window;
 

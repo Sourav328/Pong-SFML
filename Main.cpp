@@ -1,16 +1,20 @@
 
 #include "Header/Core/GameWindowManager.h"
+#include "Header/Event/EventManager.h"
 
-int main() {
-    // Create our window manager instance
+int main() 
+{
     Core::GameWindowManager gameWindowManager;
-
-    // Initialize the window
     gameWindowManager.initialize();
 
-    while (gameWindowManager.isGameRunning()) {
+    GameEvent::EventManager eventManager;
+
+    while (gameWindowManager.isGameRunning()) 
+    {
+        eventManager.pollEvents(gameWindowManager.getGameWindow());
         gameWindowManager.render();
     }
+    
 
     return 0;
 }
