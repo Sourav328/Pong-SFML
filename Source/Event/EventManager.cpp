@@ -7,12 +7,12 @@ namespace GameEvent
     void EventManager::pollEvents(sf::RenderWindow* game_window) {
         sf::Event event;
         while (game_window->pollEvent(event)) {
-            // Handle window close
+       
             if (event.type == sf::Event::Closed) {
                 game_window->close();
             }
 
-            // Handle left mouse button click
+        
             if (isLeftMouseButtonClicked()) {
                 sf::Vector2i position = sf::Mouse::getPosition(*game_window);
                 std::cout << "Left mouse click at: " << position.x << ", " << position.y << std::endl;
