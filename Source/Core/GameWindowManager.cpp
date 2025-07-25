@@ -7,10 +7,12 @@ namespace Core
         game_window = new RenderWindow();
         createGameWindow();
     }
-    void GameWindowManager::createGameWindow() 
+    void GameWindowManager::createGameWindow()
     {
-        game_window->create(sf::VideoMode::getDesktopMode(), game_title, sf::Style::Fullscreen);
+        game_window->create(sf::VideoMode(game_window_width, game_window_height), game_title,
+            sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize);
     }
+
     bool GameWindowManager::isGameRunning() 
     {
         return game_window->isOpen();
