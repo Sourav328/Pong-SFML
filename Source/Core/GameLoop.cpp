@@ -1,5 +1,6 @@
 #include "../../Header/Core/GameLoop.h"
 #include "../../Header/Event/EventManager.h"
+#include "../../Header/Gameplay/GameplayManager.h"
 
 namespace Core
 {
@@ -8,6 +9,7 @@ namespace Core
         game_window_manager = new GameWindowManager();
         event_manager = new EventManager();
         game_window_manager->initialize();
+        gameplay_manager = new Gameplay::GameplayManager();
     }
     bool GameLoop::isGameRunning() {
         return game_window_manager->isGameRunning();
@@ -23,6 +25,9 @@ namespace Core
     void GameLoop::render() 
     {
         game_window_manager->clearGameWindow();
+        game_window_manager->displayGameWindow();
+        game_window_manager->clearGameWindow();
+        gameplay_manager->render(game_window_manager->getGameWindow());
         game_window_manager->displayGameWindow();
     }
 
