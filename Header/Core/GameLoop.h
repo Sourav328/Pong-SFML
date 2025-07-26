@@ -3,6 +3,10 @@
 #include "../../Header/Core/GameWindowManager.h"
 #include "../../Header/Event/EventManager.h"
 
+// Forward declaration to avoid circular dependency
+namespace Gameplay {
+	class GameplayManager;
+}
 
 using namespace sf;
 using namespace Core;
@@ -13,15 +17,16 @@ namespace Core
 {
 	class GameLoop
 	{
-	private:
-		GameWindowManager* game_window_manager;
-		EventManager* event_manager;
+		private:
+			GameWindowManager* game_window_manager;
+			EventManager* event_manager;
+			Gameplay::GameplayManager* gameplay_manager;
 
-	public:
-		void initialize();
-		bool isGameRunning();
-		void pollEvent();
-		void update();
-		void render();
+		public:
+			void initialize();
+			bool isGameRunning();
+			void pollEvent();
+			void update();
+			void render();
 	};
 }
