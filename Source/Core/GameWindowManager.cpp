@@ -2,35 +2,29 @@
 
 namespace Core
 {
-    void GameWindowManager::initialize() {
-        game_window = new RenderWindow();
-        createGameWindow();
-    }
-    //*void GameWindowManager::initialize() 
-    //{
-    //    game_window->create(sf::VideoMode(game_window_width, game_window_height), game_title,
-    //        sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize);
-    //}
-    void GameWindowManager::createGameWindow() 
+    void GameWindowManager::initialize()
     {
-        game_window->create(VideoMode(game_window_width, game_window_height), game_title, Style::Titlebar | Style::Close);
+        game_window.create(sf::VideoMode(game_window_width, game_window_height), game_title);
+        game_window.setFramerateLimit(60);
     }
-   
-    bool GameWindowManager::isGameRunning() 
+
+    bool GameWindowManager::isGameRunning()
     {
-        return game_window->isOpen();
+        return game_window.isOpen();
     }
-    RenderWindow* GameWindowManager::getGameWindow() {
-        return game_window;
+
+    sf::RenderWindow* GameWindowManager::getGameWindow()
+    {
+        return &game_window;
     }
+
     void GameWindowManager::clearGameWindow()
     {
-        game_window->clear(Color::Red);
+        game_window.clear(sf::Color::Black);
     }
-   
+
     void GameWindowManager::displayGameWindow()
     {
-        game_window->display();
+        game_window.display();
     }
-  
 }
