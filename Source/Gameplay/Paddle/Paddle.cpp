@@ -5,6 +5,10 @@ namespace Gameplay {
     Paddle::Paddle() {
         loadTexture();
     }
+    RectangleShape& Paddle::getPaddleSprite()
+    {
+        return paddle_sprite;
+    }
 
     Paddle::Paddle(float position_x, float position_y) {
         loadTexture();
