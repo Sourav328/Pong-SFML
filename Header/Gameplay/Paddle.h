@@ -1,9 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 using namespace sf;
-#pragma once
-#include <SFML/Graphics.hpp>
-using namespace sf;
+
 namespace Gameplay
 {
     class Paddle
