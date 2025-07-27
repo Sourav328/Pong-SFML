@@ -1,34 +1,31 @@
+
 #include "../../Header/Core/GameLoop.h"
-#include "../../Header/Event/EventManager.h"
-#include "../../Header/Gameplay/GameplayManager.h"
 
 namespace Core
 {
-    void GameLoop::initialize() 
+    void GameLoop::initialize()
     {
         game_window_manager = new GameWindowManager();
-        event_manager = new EventManager();
+        event_manager = new GameEvent::EventManager();
+        gameplay_manager = new Gameplay::GameplayManager(event_manager);
         game_window_manager->initialize();
-        gameplay_manager = new Gameplay::GameplayManager();
     }
+
     bool GameLoop::isGameRunning() {
         return game_window_manager->isGameRunning();
     }
-    void GameLoop::pollEvent() 
-    {
+
+    void GameLoop::pollEvent() {
         event_manager->pollEvents(game_window_manager->getGameWindow());
     }
-    void GameLoop::update() 
-    {
 
+    void GameLoop::update() {
+        gameplay_manager->update();
     }
-    void GameLoop::render() 
-    {
-        game_window_manager->clearGameWindow();
-        game_window_manager->displayGameWindow();
+
+    void GameLoop::render() {
         game_window_manager->clearGameWindow();
         gameplay_manager->render(game_window_manager->getGameWindow());
         game_window_manager->displayGameWindow();
     }
-
 }

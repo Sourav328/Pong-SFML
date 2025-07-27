@@ -1,32 +1,24 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Header/Gameplay/Paddle.h"
-using namespace sf;
-using namespace std;
+#include <string>
 
 namespace Gameplay
 {
     class Ball
     {
     private:
-        Texture pong_ball_texture;
-        Sprite pong_ball_sprite;
-
-        string texture_path = "Assets/Textures/Ball.png";
-
-        const float scale_x = 0.06f;
-        const float scale_y = 0.06f;
-        const float position_x = 615.0f;
-        const float position_y = 325.0f;
-
-        void loadTexture();
-        void initializeVariables();
+        sf::CircleShape ballShape;
+        sf::Texture pong_ball_texture;
+        const std::string texture_path = "Assets/Textures/Ball.png";
+        float radius = 15.0f;
+        sf::Vector2f velocity = { 5.f, 5.f };
 
     public:
-
         Ball();
-
         void update();
-        void render(RenderWindow* game_window);
+        void render(sf::RenderWindow* window);
+
+    private:
+        void loadTexture();
     };
 }

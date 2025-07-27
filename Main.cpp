@@ -1,24 +1,26 @@
 
 #include "../../Header/Core/GameWindowManager.h"
-#include "../../Header/Core/GameLoop.h"
 #include "../../Header/Event/EventManager.h"
+#include "../../Header/Gameplay/GameplayManager.h"
 
 using namespace sf;
-using namespace Core;
 
+int main() {
+    Core::GameWindowManager gameWindowManager;
+    gameWindowManager.initialize();
 
-int main()
-{
-    
-	GameLoop* game_loop_manager = new GameLoop();
-	game_loop_manager->initialize();
+    GameEvent::EventManager eventManager;
+    Gameplay::GameplayManager gameplayManager(&eventManager);
 
-	while (game_loop_manager->isGameRunning()) {
-		game_loop_manager->pollEvent();
-		game_loop_manager->update();
-		game_loop_manager->render();
-	}
+    while (gameWindowManager.isGameRunning()) {
+        eventManager.pollEvents(gameWindowManager.getGameWindow());
 
-	delete game_loop_manager;
-	return 0;
+        gameplayManager.update();
+
+        gameWindowManager.clearGameWindow();
+        gameplayManager.render(gameWindowManager.getGameWindow());
+        gameWindowManager.displayGameWindow();
+    }
+
+    return 0;
 }
