@@ -21,15 +21,7 @@ void Ball::loadTexture()
 
 void Ball::update()
 {
-    ballShape.move(velocity);
-
-    sf::Vector2f pos = ballShape.getPosition();
-
-    if (pos.x <= 0 || pos.x + 2 * radius >= 1280)
-        velocity.x = -velocity.x;
-
-    if (pos.y <= 0 || pos.y + 2 * radius >= 720)
-        velocity.y = -velocity.y;
+   
 }
 
 void Ball::render(sf::RenderWindow* window)
