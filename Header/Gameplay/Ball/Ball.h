@@ -11,7 +11,7 @@ namespace Gameplay
         sf::Texture pong_ball_texture;
         const std::string texture_path = "Assets/Textures/Ball.png";
         float radius = 15.0f;
-        sf::Vector2f velocity = { 5.f, 5.f };
+        
 
     public:
         Ball();
