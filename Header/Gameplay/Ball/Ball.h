@@ -4,6 +4,7 @@
 
 namespace Gameplay
 {
+    class Paddle;
     class Ball
     {
     private:
@@ -11,14 +12,15 @@ namespace Gameplay
         sf::Texture Pong_Ball_Texture;
         const std::string Texture_Path = "Assets/Textures/Ball.png";
         float radius = 15.0f;
+        sf::Vector2f velocity = { 4.0f, 4.0f };
+        void loadTexture();
         
 
     public:
         Ball();
         void update();
         void render(sf::RenderWindow* window);
-
-    private:
-        void loadTexture();
+        void handlePaddleCollision(Paddle* player1, Paddle* player2);
+        
     };
 }
