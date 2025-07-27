@@ -1,21 +1,19 @@
 #include "../../Header/Gameplay/Ball/Ball.h"
-
-
 using namespace Gameplay;
 
 Ball::Ball()
 {
-    ballShape.setRadius(radius);
-    ballShape.setPosition(640 - radius, 360 - radius); // Centered
+    Ball_Shape.setRadius(radius);
+    Ball_Shape.setPosition(640 - radius, 360 - radius); 
     loadTexture();
-    ballShape.setTexture(&pong_ball_texture);
+    Ball_Shape.setTexture(&Pong_Ball_Texture);
 }
 
 void Ball::loadTexture()
 {
-    if (!pong_ball_texture.loadFromFile(texture_path))
+    if (!Pong_Ball_Texture.loadFromFile(Texture_Path))
     {
-        throw std::runtime_error("Failed to load ball texture at path: " + texture_path);
+        throw std::runtime_error("Failed to load ball texture at path: " + Texture_Path);
     }
 }
 
@@ -26,5 +24,5 @@ void Ball::update()
 
 void Ball::render(sf::RenderWindow* window)
 {
-    window->draw(ballShape);
+    window->draw(Ball_Shape);
 }

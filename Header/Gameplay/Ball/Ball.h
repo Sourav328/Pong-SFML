@@ -7,9 +7,9 @@ namespace Gameplay
     class Ball
     {
     private:
-        sf::CircleShape ballShape;
-        sf::Texture pong_ball_texture;
-        const std::string texture_path = "Assets/Textures/Ball.png";
+        sf::CircleShape Ball_Shape;
+        sf::Texture Pong_Ball_Texture;
+        const std::string Texture_Path = "Assets/Textures/Ball.png";
         float radius = 15.0f;
         
 

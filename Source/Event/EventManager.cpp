@@ -4,7 +4,9 @@
 
 namespace GameEvent
 {
-    void EventManager::pollEvents(sf::RenderWindow* game_window) {
+
+    void EventManager::pollEvents(sf::RenderWindow* game_window) 
+    {
         sf::Event event;
         while (game_window->pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -25,4 +27,5 @@ namespace GameEvent
     bool EventManager::isLeftMouseButtonClicked() {
         return sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
+
 }

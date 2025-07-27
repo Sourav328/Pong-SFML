@@ -1,4 +1,4 @@
-#include "../../Header/Gameplay/Paddle.h"
+#include "../../Header/Gameplay/Paddle/Paddle.h"
 
 namespace Gameplay {
 
