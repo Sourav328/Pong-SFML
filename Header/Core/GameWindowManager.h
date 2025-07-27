@@ -13,6 +13,8 @@ namespace Core
         std::string game_title = "PING PONG";
 
     public:
+        GameWindowManager();
+
         void initialize();
         bool isGameRunning();
         sf::RenderWindow* getGameWindow();
