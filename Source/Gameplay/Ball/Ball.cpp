@@ -7,7 +7,7 @@ Ball::Ball()
 {
     Ball_Shape.setRadius(radius);
     Ball_Shape.setPosition(640 , 360);
-    Ball_Shape.setOrigin(radius, radius); // Center the origin for better bouncing
+    Ball_Shape.setOrigin(radius, radius); 
     loadTexture();
     Ball_Shape.setTexture(&Pong_Ball_Texture);
 }

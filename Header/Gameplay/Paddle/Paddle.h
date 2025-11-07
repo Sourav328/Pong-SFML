@@ -7,6 +7,7 @@ using namespace std;
 
 namespace Gameplay 
 {
+     
     class Paddle 
     {
     private:
